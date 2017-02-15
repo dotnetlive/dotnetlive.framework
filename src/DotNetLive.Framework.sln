@@ -2,11 +2,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26206.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetLive.WebApiClient.Tests", "DotNetLive.Framework.WebApiClient.Tests\DotNetLive.Framework.WebApiClient.Tests.csproj", "{DA3B7519-EC1B-4112-950E-03379D212B03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetLive.Framework.WebApiClient.Tests", "DotNetLive.Framework.WebApiClient.Tests\DotNetLive.Framework.WebApiClient.Tests.csproj", "{DA3B7519-EC1B-4112-950E-03379D212B03}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetLive.Framework", "DotNetLive.Framework\DotNetLive.Framework.csproj", "{334017C4-84D4-4CB8-A7FD-DE84373AB6D0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetLive.WebApiClient", "DotNetLive.Framework.WebApiClient\DotNetLive.Framework.WebApiClient.csproj", "{82595BD3-51DD-4DC0-9801-D623FBCFD538}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetLive.Framework.WebApiClient", "DotNetLive.Framework.WebApiClient\DotNetLive.Framework.WebApiClient.csproj", "{82595BD3-51DD-4DC0-9801-D623FBCFD538}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
