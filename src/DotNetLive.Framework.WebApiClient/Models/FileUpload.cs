@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace DotNetLive.WebApiClient
+namespace DotNetLive.Framework.WebApiClient
 {
     public class FileUpload
     {

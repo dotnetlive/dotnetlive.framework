@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotNetLive.WebApiClient
+namespace DotNetLive.Framework.WebApiClient
 {
     public class ApiResponse<T> : IApiResponse
     {

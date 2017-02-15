@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotNetLive.WebApiClient
+namespace DotNetLive.Framework.WebApiClient
 {
     public class ApiMessage
     {

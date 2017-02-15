@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using DotNetLive.WebApiClient.Query;
+using DotNetLive.Framework.WebApiClient.Query;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace DotNetLive.WebApiClient
+namespace DotNetLive.Framework.WebApiClient
 {
     public class ApiClient
     {

@@ -48,6 +48,12 @@ namespace DotNetLive.Framework.Dapper.Extensions
                 //{"mysqlconnection", new MySqlAdapter()},
             };
 
+        /// <summary>
+        /// 这段目前跟GeneratedPropertiesCache有重复
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        [Obsolete("Use GeneratedPropertiesCache Instend")]
         private static List<PropertyInfo> ComputedPropertiesCache(Type type)
         {
             IEnumerable<PropertyInfo> pi;
@@ -56,7 +62,7 @@ namespace DotNetLive.Framework.Dapper.Extensions
                 return pi.ToList();
             }
 
-            var computedProperties = TypePropertiesCache(type).Where(p => p.GetCustomAttributes(true).Any(a => a is ComputedAttribute)).ToList();
+            var computedProperties = TypePropertiesCache(type).Where(p => p.GetCustomAttributes(true).Any(a => a is DatabaseGeneratedAttribute)).ToList();
 
             ComputedProperties[type.TypeHandle] = computedProperties;
             return computedProperties;
@@ -702,11 +708,6 @@ namespace DotNetLive.Framework.Dapper.Extensions
             Write = write;
         }
         public bool Write { get; }
-    }
-
-    [AttributeUsage(AttributeTargets.Property)]
-    public class ComputedAttribute : Attribute
-    {
     }
 }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotNetLive.WebApiClient.Query
+namespace DotNetLive.Framework.WebApiClient.Query
 {
     public class SessionQuery : CoreQuery
     {

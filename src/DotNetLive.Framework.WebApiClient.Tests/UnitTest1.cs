@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace DotNetLive.WebApiClient.Tests
+namespace DotNetLive.Framework.WebApiClient.Tests
 {
     public class UnitTest1
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 
-namespace DotNetLive.WebApiClient.Query
+namespace DotNetLive.Framework.WebApiClient.Query
 {
     /// <summary>
     /// 所有Query的基类

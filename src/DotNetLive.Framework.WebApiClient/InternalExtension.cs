@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace DotNetLive.WebApiClient
+namespace DotNetLive.Framework.WebApiClient
 {
     internal static class InternalExtension
     {
