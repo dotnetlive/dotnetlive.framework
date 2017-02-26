@@ -391,7 +391,7 @@ namespace DotNetLive.Framework.UserIdentity
                 throw new ArgumentNullException(nameof(user));
             }
 
-            return Task.FromResult(user.SecurityStamp);
+            return Task.FromResult(user.SecurityStamp ?? string.Empty);
         }
 
         public Task SetTwoFactorEnabledAsync(TUser user, bool enabled, CancellationToken cancellationToken)

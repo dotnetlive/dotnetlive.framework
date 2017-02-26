@@ -12,6 +12,8 @@ namespace DotNetLive.Framework.Models
         private readonly List<UserClaim> _claims;
         private readonly List<UserLogin> _logins;
 
+        public const string JwtClaimName = "jwt";
+
         public ApplicationUser(string userName, string email) : this(userName)
         {
             if (email != null)
@@ -35,12 +37,17 @@ namespace DotNetLive.Framework.Models
                 throw new ArgumentNullException(nameof(userName));
             }
 
-            Id = GenerateId(userName);
+            //Id = GenerateId(userName);
             UserName = userName;
             CreatedOn = new Occurrence();
 
             _claims = new List<UserClaim>();
             _logins = new List<UserLogin>();
+        }
+
+        public ApplicationUser(int id, string userName, string email) : this(userName, email)
+        {
+            Id = id.ToString();
         }
 
         public ApplicationUser()
