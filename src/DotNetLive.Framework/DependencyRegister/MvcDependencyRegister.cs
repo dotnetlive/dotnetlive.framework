@@ -9,6 +9,8 @@ namespace DotNetLive.Framework.DependencyRegister
 {
     public class MvcDependencyRegister : IDependencyRegister
     {
+        public ExecuteOrderType ExecuteOrder => ExecuteOrderType.Higher;
+
         public void Register(IServiceCollection services, IConfigurationRoot configuration, IServiceProvider serviceProvider)
         {
             services.AddMvc(setupAction =>
