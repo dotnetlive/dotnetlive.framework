@@ -27,7 +27,7 @@ namespace DotNetLive.Framework.Data
                 var columnAttribute = pi.GetCustomAttribute<ColumnAttribute>(true);
                 if (columnAttribute != null)
                 {
-                    columns.Add($"{columnAttribute.Name} as {pi.Name}");
+                    columns.Add($"\"{columnAttribute.Name}\" as {pi.Name}");
                     continue;
                 }
             }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DotNetLive.Framework.Security;
 
 namespace DotNetLive.Framework.WebApiClient.Query
 {
@@ -24,26 +19,26 @@ namespace DotNetLive.Framework.WebApiClient.Query
         {
             if (query != null)
             {
-                LoginId = query.LoginId;
+                Email = query.Email;
                 Password = query.Password;
                 SessionKey = query.SessionKey;
                 DeviceType = query.DeviceType;
             }
         }
 
-        [Query(Name = "loginIdorEmail")]
-        public string LoginId { get; set; }
+        [Query(Name = "email")]
+        public string Email { get; set; }
 
         public string Password { get; set; }
 
         [QueryAttribute(Name = "deviceType")]
         public int DeviceType { get; set; }
 
-        [Query(Name = "hashedPassword")]
-        public string HashedPassword
+        [Query(Name = "passwordHash")]
+        public string PasswordHash
         {
             // get { return Password; }
-            get { return !string.IsNullOrEmpty(Password) ? MD5CryptoProvider.GetMD5Hash(Password) : null; }
+            get { return !string.IsNullOrEmpty(Password) ? MD5CryptoHelper.GetMD5Hash(Password) : null; }
         }
 
         /// <summary>
@@ -51,37 +46,5 @@ namespace DotNetLive.Framework.WebApiClient.Query
         /// </summary>
         [Query(Name = "isRemeber")]
         public bool IsRemeber { get; set; }
-
-        class MD5CryptoProvider
-        {
-            public static string GetMD5Hash(string input)
-            {
-                MD5 md5Hasher = MD5.Create();
-
-                byte[] data = md5Hasher.ComputeHash(Encoding.UTF8.GetBytes(input));
-
-                var sBuilder = new StringBuilder();
-
-                for (int i = 0; i < data.Length; i++)
-                {
-                    sBuilder.Append(data[i].ToString("x2"));
-                }
-
-                return sBuilder.ToString();
-            }
-
-            public static bool VerifyMD5Hash(string input, string hash)
-            {
-                string hashOfInput = GetMD5Hash(input);
-
-                StringComparer comparer = StringComparer.OrdinalIgnoreCase;
-
-                if (0 == comparer.Compare(hashOfInput, hash))
-                {
-                    return true;
-                }
-                return false;
-            }
-        }
     }
 }
