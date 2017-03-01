@@ -47,12 +47,14 @@ namespace DotNetLive.Framework.DependencyManagement
                 .ToList();
 
             var serviceProvider = services.BuildServiceProvider();
-            foreach (var profile in dependencyRegisters)
+            //根据执行优先级排序
+            var registerInstances = dependencyRegisters.Select(service => (IDependencyRegister)serviceProvider.TryGetService(service)).OrderByDescending(x => x.ExecuteOrder);
+
+            foreach (var instance in registerInstances)
             {
-                var registerInstance = (IDependencyRegister)serviceProvider.TryGetService(profile);
-                var registerMethod = registerInstance.GetType().GetMethod("Register");
+                var registerMethod = instance.GetType().GetMethod("Register");
                 var methodParameters = registerMethod.GetParameters().Select(parm => serviceProvider.GetService(parm.ParameterType)).ToArray();
-                registerMethod.Invoke(registerInstance, methodParameters);
+                registerMethod.Invoke(instance, methodParameters);
             }
         }
 
