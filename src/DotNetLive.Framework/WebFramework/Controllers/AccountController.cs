@@ -17,9 +17,9 @@ namespace DotNetLive.Framework.WebFramework.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult Login(string userNameOrEmailAddress = "", string returnUrl = "", string successMessage = "")
+        public ActionResult Login(string returnUrl = "")
         {
-            return Redirect($"{LoginUrl}/account/login?returnUrl={ GetEncodeReturlUrl(returnUrl)}");
+            return Redirect($"{LoginUrl}/account/login?returnUrl={GetEncodeReturlUrl(returnUrl)}");
         }
 
         private string GetEncodeReturlUrl(string returnUrl)
