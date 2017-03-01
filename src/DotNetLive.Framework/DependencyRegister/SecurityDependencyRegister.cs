@@ -19,6 +19,8 @@ namespace DotNetLive.Framework.DependencyRegister
 {
     public class SecurityDependencyRegister : IDependencyRegister
     {
+        public ExecuteOrderType ExecuteOrder => ExecuteOrderType.Higher;
+
         public void Register(IServiceCollection services, IConfigurationRoot configuration,
             IHostingEnvironment hostingEnvironment, IOptions<SecuritySettings> securitySettings)
         {
