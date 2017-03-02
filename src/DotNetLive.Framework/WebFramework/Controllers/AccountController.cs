@@ -25,8 +25,7 @@ namespace DotNetLive.Framework.WebFramework.Controllers
         private string GetEncodeReturlUrl(string returnUrl)
         {
             var context = Request.HttpContext;
-            //@($"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}")
-            return WebUtility.UrlEncode($"{context.Request.Scheme}://{context.Request.Host}{context.Request.Path}{context.Request.QueryString}");
+            return WebUtility.UrlEncode($"{context.Request.Scheme}://{context.Request.Host}{returnUrl}");
         }
 
         [AllowAnonymous]
