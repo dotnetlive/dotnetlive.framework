@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 
-namespace DotNetLive.Framework.WebApi.Data
+namespace DotNetLive.Framework.Data
 {
     public static class EntityMapper<T>
     {

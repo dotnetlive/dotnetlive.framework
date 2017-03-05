@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DotNetLive.Framework.WebApi.Data.Repositories
+namespace DotNetLive.Framework.Data.Repositories
 {
     public interface IQueryRepository
     {

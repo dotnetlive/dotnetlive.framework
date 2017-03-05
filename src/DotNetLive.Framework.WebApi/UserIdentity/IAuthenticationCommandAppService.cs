@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using DotNetLive.Framework.Data.Repositories;
 using DotNetLive.Framework.Entities;
-using DotNetLive.Framework.WebApi.Data.Repositories;
 
 namespace DotNetLive.Framework.WebApi.UserIdentity
 {

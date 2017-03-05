@@ -1,4 +1,4 @@
-﻿using DotNetLive.Framework.WebApi.Data;
+﻿using DotNetLive.Framework.Data;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace DotNetLive.Framework.WebApi.WebFramework.Filters

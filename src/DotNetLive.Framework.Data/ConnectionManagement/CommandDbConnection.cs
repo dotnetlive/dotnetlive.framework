@@ -4,7 +4,7 @@ using Npgsql;
 using System;
 using System.Data;
 
-namespace DotNetLive.Framework.WebApi.Data
+namespace DotNetLive.Framework.Data
 {
     /// <summary>
     /// Command DbConnection

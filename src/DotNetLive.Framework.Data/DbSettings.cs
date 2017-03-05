@@ -1,6 +1,6 @@
 ﻿using Npgsql;
 
-namespace DotNetLive.Framework.WebApi.Data
+namespace DotNetLive.Framework.Data
 {
     public class DbSettings
     {

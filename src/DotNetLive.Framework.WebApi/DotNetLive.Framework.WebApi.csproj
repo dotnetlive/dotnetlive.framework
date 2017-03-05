@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DotNetLive.Framework.Data\DotNetLive.Framework.Data.csproj" />
     <ProjectReference Include="..\DotNetLive.Framework.Web\DotNetLive.Framework.Web.csproj" />
     <ProjectReference Include="..\DotNetLive.Framework\DotNetLive.Framework.csproj" />
   </ItemGroup>

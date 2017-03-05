@@ -1,6 +1,6 @@
 ﻿using Dapper;
+using DotNetLive.Framework.Data.Dapper.Extensions;
 using DotNetLive.Framework.Models;
-using DotNetLive.Framework.WebApi.Dapper.Extensions;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace DotNetLive.Framework.WebApi.Data.Repositories
+namespace DotNetLive.Framework.Data.Repositories
 {
     public class QueryRepository : IQueryRepository
     {

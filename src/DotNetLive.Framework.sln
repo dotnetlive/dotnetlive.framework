@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetLive.Framework.Mvc", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetLive.Framework.WebApi", "DotNetLive.Framework.WebApi\DotNetLive.Framework.WebApi.csproj", "{CF30CAC9-21B8-4222-93AB-765C46E27632}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetLive.Framework.Data", "DotNetLive.Framework.Data\DotNetLive.Framework.Data.csproj", "{D60E9CBB-61DC-4801-89A2-BC576C32C089}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,6 +112,18 @@ Global
 		{CF30CAC9-21B8-4222-93AB-765C46E27632}.Release|x64.Build.0 = Release|x64
 		{CF30CAC9-21B8-4222-93AB-765C46E27632}.Release|x86.ActiveCfg = Release|x86
 		{CF30CAC9-21B8-4222-93AB-765C46E27632}.Release|x86.Build.0 = Release|x86
+		{D60E9CBB-61DC-4801-89A2-BC576C32C089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D60E9CBB-61DC-4801-89A2-BC576C32C089}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D60E9CBB-61DC-4801-89A2-BC576C32C089}.Debug|x64.ActiveCfg = Debug|x64
+		{D60E9CBB-61DC-4801-89A2-BC576C32C089}.Debug|x64.Build.0 = Debug|x64
+		{D60E9CBB-61DC-4801-89A2-BC576C32C089}.Debug|x86.ActiveCfg = Debug|x86
+		{D60E9CBB-61DC-4801-89A2-BC576C32C089}.Debug|x86.Build.0 = Debug|x86
+		{D60E9CBB-61DC-4801-89A2-BC576C32C089}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D60E9CBB-61DC-4801-89A2-BC576C32C089}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D60E9CBB-61DC-4801-89A2-BC576C32C089}.Release|x64.ActiveCfg = Release|x64
+		{D60E9CBB-61DC-4801-89A2-BC576C32C089}.Release|x64.Build.0 = Release|x64
+		{D60E9CBB-61DC-4801-89A2-BC576C32C089}.Release|x86.ActiveCfg = Release|x86
+		{D60E9CBB-61DC-4801-89A2-BC576C32C089}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

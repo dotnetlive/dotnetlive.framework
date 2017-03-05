@@ -11,7 +11,7 @@ using System.Reflection.Emit;
 using System.Text;
 using DataException = System.InvalidOperationException;
 
-namespace DotNetLive.Framework.WebApi.Dapper.Extensions
+namespace DotNetLive.Framework.Data.Dapper.Extensions
 {
     public static partial class SqlMapperExtensions
     {

@@ -1,7 +1,7 @@
 ﻿using DotNetLive.Framework.Entities;
 using System;
 
-namespace DotNetLive.Framework.WebApi.Data.Repositories
+namespace DotNetLive.Framework.Data.Repositories
 {
     public interface ICommandRepository
     {

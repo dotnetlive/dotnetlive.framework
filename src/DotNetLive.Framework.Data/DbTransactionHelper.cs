@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace DotNetLive.Framework.WebApi.Data
+namespace DotNetLive.Framework.Data
 {
     public static class DbTransactionHelper
     {

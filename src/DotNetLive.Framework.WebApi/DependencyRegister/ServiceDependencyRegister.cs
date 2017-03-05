@@ -1,10 +1,8 @@
-﻿using DotNetLive.Framework.DependencyManagement;
-using DotNetLive.Framework.Web.Models;
-using DotNetLive.Framework.WebApi.Data;
-using DotNetLive.Framework.WebApi.Data.Repositories;
+﻿using DotNetLive.Framework.Data;
+using DotNetLive.Framework.Data.Repositories;
+using DotNetLive.Framework.DependencyManagement;
 using DotNetLive.Framework.WebApi.UserIdentity;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;

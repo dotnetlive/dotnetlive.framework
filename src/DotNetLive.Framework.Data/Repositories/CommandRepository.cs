@@ -1,10 +1,10 @@
 ﻿using Dapper;
+using DotNetLive.Framework.Data.Dapper.Extensions;
 using DotNetLive.Framework.Entities;
-using DotNetLive.Framework.WebApi.Dapper.Extensions;
 using System;
 using System.Data;
 
-namespace DotNetLive.Framework.WebApi.Data.Repositories
+namespace DotNetLive.Framework.Data.Repositories
 {
     public class CommandRepository : ICommandRepository
     {
