@@ -1,21 +1,20 @@
 ﻿using AutoMapper;
-using DotNetLive.Framework.WebFramework.Filters;
 using DotNetLive.Framework.DependencyManagement;
+using DotNetLive.Framework.WebFramework.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace DotNetLive.Framework.DependencyRegister
+namespace DotNetLive.Framework.Web.DependencyRegister
 {
     public class MvcDependencyRegister : IDependencyRegister
     {
-        public ExecuteOrderType ExecuteOrder => ExecuteOrderType.Higher;
+        public ExecuteOrderType ExecuteOrder => ExecuteOrderType.Highest;
 
         public void Register(IServiceCollection services, IConfigurationRoot configuration, IServiceProvider serviceProvider)
         {
             services.AddMvc(setupAction =>
             {
-                setupAction.Filters.Add(new GlobalDbTransactionAttribute() { Order = 0 });
                 setupAction.Filters.Add(new GlobalExceptionAttribute() { Order = 99 });
             });
 
@@ -26,15 +25,13 @@ namespace DotNetLive.Framework.DependencyRegister
 
             services.AddDataProtection();
 
-            // Add memory cache services.
-            services.AddMemoryCache(setup =>
-            {
-                setup.ExpirationScanFrequency = TimeSpan.FromMinutes(1);
-            });
+            //// Add memory cache services.
+            //services.AddMemoryCache(setup =>
+            //{
+            //    setup.ExpirationScanFrequency = TimeSpan.FromMinutes(1);
+            //});
 
             services.AddDistributedMemoryCache();
-
-            services.AddMvc(setup => { });
 
             services.AddRouting(routeOptions =>
             {
