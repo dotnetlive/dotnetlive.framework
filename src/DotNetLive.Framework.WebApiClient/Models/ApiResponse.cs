@@ -72,6 +72,11 @@ namespace DotNetLive.Framework.WebApiClient
         }
     }
 
+    public class ApiResponse : ApiResponse<string>
+    {
+
+    }
+
     public interface IApiResponse
     {
         ApiMessage ApiMessage { get; }

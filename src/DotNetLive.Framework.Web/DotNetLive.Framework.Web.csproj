@@ -21,4 +21,8 @@
     <ProjectReference Include="..\DotNetLive.Framework\DotNetLive.Framework.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="WebFramework\Controllers\" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,9 @@
-﻿using AutoMapper;
-using DotNetLive.Framework.WebFramework.Filters;
-using DotNetLive.Framework.DependencyManagement;
+﻿using DotNetLive.Framework.DependencyManagement;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace DotNetLive.Framework.DependencyRegister
+namespace DotNetLive.Framework.Mvc.DependencyRegister
 {
     public class MvcDependencyRegister : IDependencyRegister
     {

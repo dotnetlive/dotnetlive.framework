@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using DotNetLive.Framework.DependencyManagement;
-using DotNetLive.Framework.WebFramework.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -15,7 +14,7 @@ namespace DotNetLive.Framework.Web.DependencyRegister
         {
             services.AddMvc(setupAction =>
             {
-                setupAction.Filters.Add(new GlobalExceptionAttribute() { Order = 99 });
+                
             });
 
             services.AddAutoMapper();

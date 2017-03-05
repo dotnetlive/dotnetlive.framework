@@ -1,10 +1,10 @@
 ﻿using DotNetLive.Framework.DependencyManagement;
-using DotNetLive.Framework.WebFramework.Filters;
+using DotNetLive.Framework.WebApi.WebFramework.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace DotNetLive.Framework.WebApi.DependencyRegister
+namespace DotNetLive.Framework.WebApi.WebApi.DependencyRegister
 {
     public class MvcDependencyRegister : IDependencyRegister
     {
@@ -14,6 +14,7 @@ namespace DotNetLive.Framework.WebApi.DependencyRegister
         {
             services.AddMvc(setupAction =>
             {
+                setupAction.Filters.Add(new GlobalExceptionAttribute() { Order = 99 });
                 setupAction.Filters.Add(new GlobalDbTransactionAttribute() { Order = 0 });
             });
 

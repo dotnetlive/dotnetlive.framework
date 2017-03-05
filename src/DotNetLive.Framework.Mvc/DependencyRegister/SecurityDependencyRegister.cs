@@ -1,6 +1,6 @@
 ﻿using DotNetLive.Framework.DependencyManagement;
-using DotNetLive.Framework.Models;
-using DotNetLive.Framework.UserIdentity;
+using DotNetLive.Framework.Mvc.UserIdentity;
+using DotNetLive.Framework.Web.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
@@ -15,7 +15,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DotNetLive.Framework.DependencyRegister
+namespace DotNetLive.Framework.Mvc.DependencyRegister
 {
     public class SecurityDependencyRegister : IDependencyRegister
     {
@@ -67,6 +67,8 @@ namespace DotNetLive.Framework.DependencyRegister
             services.TryAddScoped<UserManager<ApplicationUser>, UserManager<ApplicationUser>>();
             services.TryAddScoped<SignInManager<ApplicationUser>, SignInManager<ApplicationUser>>();
 
+            services.AddScoped<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>();
+            services.AddScoped<IUserApiClient, UserApiClient>();
             AddDefaultTokenProviders(services);
         }
 
