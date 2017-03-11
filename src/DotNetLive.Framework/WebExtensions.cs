@@ -31,7 +31,13 @@ namespace DotNetLive.Framework
             }
 
             string path = request.Path;
-            string extension = path.Substring(path.LastIndexOf('.'));
+            var extensionPosition = path.LastIndexOf('.');
+            if (extensionPosition < 0)
+            {
+                return false;
+            }
+
+            string extension = path.Substring(extensionPosition);
 
             if (extension == null)
             {

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
+using DotNetLive.Framework;
 
 namespace DotNetLive.Framework.Diagnostics.Trace
 {
@@ -22,12 +23,12 @@ namespace DotNetLive.Framework.Diagnostics.Trace
 
         public async Task Invoke(HttpContext context)
         {
-            //if (context.Request.Path.StartsWithSegments(_options.Path))
-            //if (IsStaticResource(context.Request) || context.Request.Path.StartsWithSegments(_options.Path))
-            //{
-            //    await _next(context);
-            //    return;
-            //}
+            if (context.Request.IsStaticResource() || context.Request.Path.StartsWithSegments(_options.Path, StringComparison.OrdinalIgnoreCase))
+            {
+                //不拦截静态资源与/trace的请求
+                await _next(context);
+                return;
+            }
 
             using (RequestIdentifier.Ensure(context))
             {

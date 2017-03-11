@@ -32,8 +32,8 @@ namespace DotNetLive.Framework.Diagnostics.Trace.Views
     <meta charset=""utf-8"" />
     <title>ASP.NET Core Logs</title>
     <script src=""//ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.1.min.js""></script>
-    <style>
-   body { font-family: 'Segoe UI', Tahoma, Arial, Helvtica, sans-serif; line-height: 1.4em; }
+<style>
+body { font-family: 'Segoe UI', Tahoma, Arial, Helvtica, sans-serif; line-height: 1.4em; }
 
 h1 { font-family: 'Segoe UI', Helvetica, sans-serif; font-size: 2.5em; }
 
@@ -50,7 +50,6 @@ tr:nth-child(2n) { background-color: #F6F6F6; }
 .debug { color: black; }
 
 .warning { color: orange; }
-
 body { font-size: .813em; white-space: nowrap; margin: 20px; }
 
 col:nth-child(2n) { background-color: #FAFAFA; }
@@ -97,18 +96,19 @@ tr { height: 23px; }
 
     #viewOptions > * { margin: 5px; }
 
-    </style>
+</style>
 </head>
 <body>
     <h1>ASP.NET Core Trace Logs</h1>
 ");
+            WriteLiteral("<table>");
             foreach (var activity in Model.Activities.Reverse())
             {
-                WriteLiteral("            <tbody>\r\n                <tr class=\"requestRow\">\r\n");
+                WriteLiteral("<tbody><tr class=\"requestRow\">");
                 var activityPath = Model.Path.Value + "/" + activity.Id;
                 if (activity.HttpInfo != null)
                 {
-                    WriteLiteral("                        \t<td><a");
+                    WriteLiteral("<td><a");
                     BeginWriteAttribute("href", " href=\"", 6313, "\"", 6333, 1);
                     WriteAttributeValue("", 6320, activityPath, 6320, 13, false);
                     EndWriteAttribute();
@@ -117,17 +117,17 @@ tr { height: 23px; }
                     EndWriteAttribute();
                     WriteLiteral(">");
                     Write(activity.HttpInfo.Path);
-                    WriteLiteral("</a></td>\r\n                            <td>");
+                    WriteLiteral("</a></td><td>");
                     Write(activity.HttpInfo.Method);
-                    WriteLiteral("</td>\r\n                            <td>");
+                    WriteLiteral("</td><td>");
                     Write(activity.HttpInfo.Host);
-                    WriteLiteral("</td>\r\n                            <td>");
+                    WriteLiteral("</td><td>");
                     Write(activity.HttpInfo.StatusCode);
-                    WriteLiteral("</td>\r\n");
+                    WriteLiteral("</td>");
                 }
                 else if (activity.RepresentsScope)
                 {
-                    WriteLiteral("                            <td colspan=\"4\"><a");
+                    WriteLiteral("<td colspan=\"4\">NoHttpRequest <a");
                     BeginWriteAttribute("href", " href=\"", 6755, "\"", 6775, 1);
                     WriteAttributeValue("", 6762, activityPath, 6762, 13, false);
                     EndWriteAttribute();
@@ -136,17 +136,18 @@ tr { height: 23px; }
                     EndWriteAttribute();
                     WriteLiteral(">");
                     Write(activity.Root.State);
-                    WriteLiteral("</a></td>\r\n");
+                    WriteLiteral("</a></td>");
                 }
                 else
                 {
-                    WriteLiteral("                            <td colspan=\"4\"><a");
+                    WriteLiteral("<td colspan=\"4\"><a");
                     BeginWriteAttribute("href", " href=\"", 6967, "\"", 6987, 1);
                     WriteAttributeValue("", 6974, activityPath, 6974, 13, false);
                     EndWriteAttribute();
-                    WriteLiteral(">Non-scope Log</a></td>\r\n");
+                    WriteLiteral(">Non-scope Log</a></td>");
                 }
-                WriteLiteral(@"                    <td class=""logTd"">
+                WriteLiteral("</tr><tr>");
+                WriteLiteral(@"<td class=""logTd"" colspan='4'>
                         <table class=""logTable"">
                             <thead class=""logHeader"">
                                 <tr class=""headerRow"">
@@ -158,6 +159,7 @@ tr { height: 23px; }
                                     <th>Error<span class=""collapse"">^</span></th>
                                 </tr>
                             </thead>");
+
                 var counts = new Dictionary<string, int>
                 {
                     ["Critical"] = 0,
@@ -166,7 +168,7 @@ tr { height: 23px; }
                     ["Information"] = 0,
                     ["Debug"] = 0
                 };
-                WriteLiteral("                            <tbody class=\"logBody\">\r\n");
+                WriteLiteral("<tbody class=\"logBody\">");
                 if (!activity.RepresentsScope)
                 {
                     // message not within a scope
@@ -178,31 +180,32 @@ tr { height: 23px; }
                 {
                     Write(Traverse(activity.Root, 0, counts));
                 }
-                WriteLiteral("                            </tbody>\r\n                            <tbody class=\"summary\">\r\n                                <tr class=\"logRow\">\r\n                                    <td>");
+                WriteLiteral("</tbody><tbody class=\"summary\"><tr class=\"logRow\"><td>");
                 Write(activity.Time.ToString("MM-dd-yyyy HH:mm:ss"));
-                WriteLiteral("</td>\r\n");
+                WriteLiteral("</td>");
                 foreach (var kvp in counts)
                 {
                     if (string.Equals("Debug", kvp.Key))
                     {
-                        WriteLiteral("                                            <td>");
+                        WriteLiteral("<td>");
                         Write(kvp.Value);
                         WriteLiteral(" ");
                         Write(kvp.Key);
-                        WriteLiteral("<span class=\"collapse\">v</span></td>\r\n");
+                        WriteLiteral("<span class=\"collapse\">v</span></td>");
                     }
                     else
                     {
-                        WriteLiteral("                                            <td>");
+                        WriteLiteral("<td>");
                         Write(kvp.Value);
                         WriteLiteral(" ");
                         Write(kvp.Key);
-                        WriteLiteral("</td>\r\n");
+                        WriteLiteral("</td>");
                     }
                 }
-                WriteLiteral("                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n");
+                WriteLiteral("</tr></tbody></table></td>");
+                WriteLiteral("</tr></tbody>");
             }
-
+              WriteLiteral("</table>");
             WriteLiteral(@"
     <script type=""text/javascript"">
         $(document).ready(function () {
@@ -233,33 +236,33 @@ tr { height: 23px; }
                     (string.IsNullOrEmpty(Model.Options.NamePrefix) || log.Name.StartsWith(Model.Options.NamePrefix, StringComparison.Ordinal)))
                 {
 
-                    WriteLiteralTo(writer, "        <tr class=\"logRow\">\r\n            <td>");
+                    WriteLiteralTo(writer, "<tr class=\"logRow\"><td>");
                     WriteTo(writer, string.Format("{0:MM/dd/yy}", log.Time));
 
-                    WriteLiteralTo(writer, "</td>\r\n            <td>");
+                    WriteLiteralTo(writer, "</td><td>");
                     WriteTo(writer, string.Format("{0:H:mm:ss}", log.Time));
 
-                    WriteLiteralTo(writer, $"</td>\r\n            <td title=\"{log.Name}\">");
+                    WriteLiteralTo(writer, $"</td><td title=\"{log.Name}\">");
                     WriteTo(writer, log.Name);
                     var severity = log.Severity.ToString().ToLowerInvariant();
-                    WriteLiteralTo(writer, $"</td>\r\n            <td class=\"{severity}\">");
+                    WriteLiteralTo(writer, $"</td><td class=\"{severity}\">");
                     WriteTo(writer, log.Severity);
 
-                    WriteLiteralTo(writer, $"</td>\r\n            <td title=\"{log.Message}\"> \r\n");
+                    WriteLiteralTo(writer, $"</td><td title=\"{log.Message}\"> ");
 
                     for (var i = 0; i < level; i++)
                     {
-                        WriteLiteralTo(writer, "                    <span class=\"tab\"></span>\r\n");
+                        WriteLiteralTo(writer, "<span class=\"tab\"></span>");
                     }
 
-                    WriteLiteralTo(writer, "                ");
+                    WriteLiteralTo(writer, "");
                     WriteTo(writer, log.Message);
 
-                    WriteLiteralTo(writer, $"\r\n            </td>\r\n            <td title=\"{log.Exception}\">");
+                    WriteLiteralTo(writer, $"</td><td title=\"{log.Exception}\">");
 
                     WriteTo(writer, log.Exception);
 
-                    WriteLiteralTo(writer, "</td>\r\n        </tr>\r\n");
+                    WriteLiteralTo(writer, "</td></tr>");
 
                 }
             });

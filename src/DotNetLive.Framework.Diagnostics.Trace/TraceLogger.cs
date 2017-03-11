@@ -28,7 +28,7 @@ namespace DotNetLive.Framework.Diagnostics.Trace
             switch (_name)
             {
                 case "Microsoft.AspNetCore.Server.Kestrel":
-                //case "Microsoft.AspNetCore.Hosting.Internal.WebHost":
+                    //case "Microsoft.AspNetCore.Hosting.Internal.WebHost":
                     return;
                 default:
                     break;
@@ -47,9 +47,11 @@ namespace DotNetLive.Framework.Diagnostics.Trace
                 Message = formatter == null ? state.ToString() : formatter(state, exception),
                 Time = DateTimeOffset.UtcNow
             };
+
             if (TraceScope.Current != null)
             {
-                TraceScope.Current.Node.Messages.Add(info);
+                if (info.ActivityContext.HttpInfo != null)
+                    TraceScope.Current.Node.Messages.Add(info);
             }
             // The log does not belong to any scope - create a new context for it
             else
@@ -87,42 +89,6 @@ namespace DotNetLive.Framework.Diagnostics.Trace
         private ActivityContext GetCurrentActivityContext()
         {
             return TraceScope.Current?.Context ?? GetNewActivityContext();
-        }
-
-
-        public static bool IsStaticResource(HttpRequest request)
-        {
-            if (request == null)
-                throw new ArgumentNullException("request");
-
-            string path = request.Path;
-            if (path.LastIndexOf('.') == -1)//Not found '.' char
-                return false;
-
-            string extension = path.Substring(path.LastIndexOf('.'));
-
-            if (string.IsNullOrWhiteSpace(extension)) return false;
-
-            switch (extension.ToLower())
-            {
-                case ".axd":
-                case ".ashx":
-                case ".bmp":
-                case ".css":
-                case ".gif":
-                case ".htm":
-                case ".html":
-                case ".ico":
-                case ".jpeg":
-                case ".jpg":
-                case ".js":
-                case ".png":
-                case ".rar":
-                case ".zip":
-                    return true;
-            }
-
-            return false;
         }
     }
 }
